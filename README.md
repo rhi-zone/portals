@@ -16,9 +16,19 @@ Capability-based, async-first interfaces inspired by WASI, designed to be implem
 | `pith-random` | Secure and insecure RNG | `wasi:random` |
 | `pith-sockets` | TCP, UDP, DNS | `wasi:sockets` |
 
+## Structure
+
+```
+crates/
+├── interfaces/     # Trait definitions (pith-*)
+└── backends/       # Implementations
+    ├── native/     # Native OS implementations
+    └── wasm/       # WASM implementations
+```
+
 ## Design Principles
 
 - **Capability-based**: Access is granted through capability objects, not ambient authority
 - **Async-first**: Operations that may block return futures
-- **Minimal**: Define interfaces, not implementations
+- **Minimal**: Interfaces define traits, backends provide implementations
 - **Portable**: Implementable on native, WASM, and embedded targets
