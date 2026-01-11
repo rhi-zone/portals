@@ -1,0 +1,20 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/pith-clocks",
+    "crates/pith-cli",
+    "crates/pith-filesystem",
+    "crates/pith-http",
+    "crates/pith-io",
+    "crates/pith-random",
+    "crates/pith-sockets",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/rhizome-lab/pith"
+
+[workspace.dependencies]
+thiserror = "2"

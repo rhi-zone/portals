@@ -1,0 +1,10 @@
+[package]
+name = "pith-sockets"
+description = "Socket interfaces (TCP, UDP)"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+thiserror.workspace = true

@@ -1,0 +1,9 @@
+[package]
+name = "pith-clocks"
+description = "Clock interfaces (wall clock, monotonic clock)"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]

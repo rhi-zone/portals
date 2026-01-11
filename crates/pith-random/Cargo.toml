@@ -1,0 +1,9 @@
+[package]
+name = "pith-random"
+description = "Random number generation interfaces"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
