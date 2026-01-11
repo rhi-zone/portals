@@ -1,0 +1,15 @@
+[package]
+name = "pith-clocks-native"
+description = "Native implementation of pith-clocks"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[features]
+default = ["tokio"]
+tokio = ["dep:tokio"]
+
+[dependencies]
+pith-clocks = { path = "../../../interfaces/pith-clocks" }
+tokio = { workspace = true, optional = true }
