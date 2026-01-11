@@ -8,6 +8,9 @@ members = [
     "crates/interfaces/pith-io",
     "crates/interfaces/pith-random",
     "crates/interfaces/pith-sockets",
+    "crates/interfaces/pith-crypto",
+    "crates/interfaces/pith-encoding",
+    "crates/interfaces/pith-sql",
     # Backends
     "crates/backends/native/pith-random-native",
     "crates/backends/native/pith-clocks-native",
