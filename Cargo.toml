@@ -1,13 +1,13 @@
 [workspace]
 resolver = "2"
 members = [
-    "crates/pith-clocks",
-    "crates/pith-cli",
-    "crates/pith-filesystem",
-    "crates/pith-http",
-    "crates/pith-io",
-    "crates/pith-random",
-    "crates/pith-sockets",
+    "crates/interfaces/pith-clocks",
+    "crates/interfaces/pith-cli",
+    "crates/interfaces/pith-filesystem",
+    "crates/interfaces/pith-http",
+    "crates/interfaces/pith-io",
+    "crates/interfaces/pith-random",
+    "crates/interfaces/pith-sockets",
 ]
 
 [workspace.package]
