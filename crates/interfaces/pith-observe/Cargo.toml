@@ -1,0 +1,9 @@
+[package]
+name = "pith-observe"
+description = "Observability/telemetry interfaces"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
