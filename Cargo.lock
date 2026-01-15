@@ -1885,6 +1885,21 @@ dependencies = [
 ]
 
 [[package]]
+name = "pith-messaging"
+version = "0.1.0"
+dependencies = [
+ "thiserror 2.0.17",
+]
+
+[[package]]
+name = "pith-messaging-native"
+version = "0.1.0"
+dependencies = [
+ "pith-messaging",
+ "tokio",
+]
+
+[[package]]
 name = "pith-observe"
 version = "0.1.0"
 
