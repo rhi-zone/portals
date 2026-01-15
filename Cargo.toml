@@ -4,6 +4,7 @@ members = [
     # Interfaces
     "crates/interfaces/pith-clocks",
     "crates/interfaces/pith-cli",
+    "crates/interfaces/pith-config",
     "crates/interfaces/pith-crypto",
     "crates/interfaces/pith-dns",
     "crates/interfaces/pith-encoding",
@@ -19,6 +20,7 @@ members = [
     # Backends
     "crates/backends/native/pith-clocks-native",
     "crates/backends/native/pith-cli-native",
+    "crates/backends/native/pith-config-native",
     "crates/backends/native/pith-crypto-native",
     "crates/backends/native/pith-dns-native",
     "crates/backends/native/pith-encoding-native",

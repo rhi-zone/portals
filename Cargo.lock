@@ -1713,6 +1713,20 @@ dependencies = [
 ]
 
 [[package]]
+name = "pith-config"
+version = "0.1.0"
+dependencies = [
+ "thiserror 2.0.17",
+]
+
+[[package]]
+name = "pith-config-native"
+version = "0.1.0"
+dependencies = [
+ "pith-config",
+]
+
+[[package]]
 name = "pith-crypto"
 version = "0.1.0"
 
