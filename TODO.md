@@ -14,16 +14,16 @@
 
 ## Backlog
 
-WASI Phase 1/2 interfaces to consider:
+WASI Phase 1/2 interfaces:
 
-- [ ] **pith-timezone** - timezone handling (WASI Phase 2)
-- [ ] **pith-keyvalue** - key-value store (WASI Phase 1)
-- [ ] **pith-logging** - structured logging (WASI Phase 1)
-- [ ] **pith-config** - runtime configuration (WASI Phase 1)
-- [ ] **pith-url** - URL parsing (WASI Phase 1)
-- [ ] **pith-messaging** - message queues (WASI Phase 1)
-- [ ] **pith-observe** - observability/telemetry (WASI Phase 1)
-- [ ] **pith-blobstore** - blob storage (WASI Phase 1)
+- [x] **pith-url** - URL parsing (WASI Phase 1)
+- [x] **pith-timezone** - timezone handling (WASI Phase 2)
+- [x] **pith-config** - runtime configuration (WASI Phase 1)
+- [x] **pith-logging** - structured logging (WASI Phase 1)
+- [x] **pith-keyvalue** - key-value store (WASI Phase 1)
+- [x] **pith-blobstore** - blob storage (WASI Phase 1)
+- [x] **pith-observe** - observability/telemetry (WASI Phase 1)
+- [x] **pith-messaging** - message queues (WASI Phase 1)
 
 ### Unstable / Deferred
 
