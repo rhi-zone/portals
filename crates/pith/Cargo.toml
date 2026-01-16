@@ -1,0 +1,13 @@
+[package]
+name = "rhizome-pith"
+description = "A standard library of interfaces for Rust"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+readme = "README.md"
+keywords = ["interfaces", "abstraction", "portability", "wasi"]
+categories = ["development-tools", "api-bindings"]
+
+[dependencies]
+# No dependencies - this is a documentation-only crate

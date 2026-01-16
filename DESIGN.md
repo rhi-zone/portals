@@ -8,51 +8,54 @@ Principles and conventions for pith interfaces.
 
 ## Interface Categories
 
-Not all interfaces are equal in terms of how "pure" or opinionated they are.
+Pith's value varies by domain. The goal is **reducing decision fatigue** while providing **consistent APIs**.
 
-### Primitive interfaces (preferred)
+### Primitives (high value)
 
-Generic abstractions over fundamental capabilities:
+Fundamental capabilities where abstraction enables portability and testability:
 
 - `pith-clocks` - time
 - `pith-random` - randomness
 - `pith-filesystem` - file I/O
 - `pith-io` - streams
 - `pith-sockets` - raw networking
-- `pith-keyvalue` - key-value storage
 
-These are **pure** - they abstract a capability without imposing a specific format or protocol. Backends have freedom in how they implement them.
+These have genuinely different implementations across platforms (native, WASM, embedded). The abstraction is the value.
 
-### Protocol/standard interfaces (use sparingly)
+### Contested domains (medium value)
 
-Interfaces that implement specific standards or formats:
+Areas where the Rust ecosystem has multiple viable options and no clear winner:
 
-- `pith-http` - HTTP protocol
-- `pith-websocket` - WebSocket protocol
-- `pith-cron` - cron expression syntax
-- `pith-markdown` - Markdown format
-- `pith-uuid` - UUID specification
-- `pith-jwt` - JWT specification
+| Domain | Ecosystem fragmentation | Pith's role |
+|--------|------------------------|-------------|
+| HTTP client | reqwest, ureq, hyper, surf | Pick one, consistent API |
+| Datetime | chrono, time | Pick one, consistent API |
+| Markdown | pulldown-cmark, comrak | Pick one, consistent API |
+| Logging | log, tracing | Pick one, consistent API |
+| SQL | rusqlite, sqlx, diesel | Abstract over them |
+| Caching | many options | Provide standard interface |
 
-These are **opinionated** - they're already constrained by external specifications. The interface is largely dictated by the protocol, leaving less room for abstraction.
+Here pith's value is **the decision itself** plus API consistency with other pith crates. The interface may be thin over the chosen library.
+
+### Solved domains (low value - defer)
+
+Areas where ecosystem consensus already exists:
+
+| Domain | Ecosystem standard | Pith's role |
+|--------|-------------------|-------------|
+| Serialization | serde | Don't wrap, just use serde |
+| CLI parsing | clap | Don't wrap, just use clap |
+| URL parsing | url | Don't wrap, just use url |
+| Regex | regex | Don't wrap, just use regex |
+
+Creating pith wrappers here adds friction without benefit. Users already know these APIs.
 
 ### Guidelines
 
-1. **Prefer primitive interfaces** - they provide more value as abstractions
-2. **Protocol interfaces are fine** when the protocol is truly universal (HTTP, UUID)
-3. **Be cautious** with niche protocols - they may not warrant an interface
-4. **Consider whether abstraction adds value** - if every backend will implement the same spec identically, maybe just use a library directly
-
-### When to create a protocol interface
-
-Good reasons:
-- The protocol is universal and long-lived (HTTP, UUID)
-- You need to swap implementations (e.g., different HTTP clients)
-- Testing requires mocking the protocol layer
-
-Weaker reasons:
-- "It would be nice to have" - prefer direct library use
-- The protocol has only one viable implementation
+1. **Ask "is there ecosystem consensus?"** - if yes, defer to it
+2. **Ask "does abstraction enable something?"** - portability, testability, swapping impls
+3. **Consistency is valuable but not free** - don't wrap just for uniformity
+4. **It's okay to just recommend** - document "use X" without wrapping
 
 ## Error Handling
 
