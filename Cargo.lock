@@ -1726,6 +1726,10 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8b870d8c151b6f2fb93e84a13146138f05d02ed11c7e7c54f8826aaaf7c9f184"
 
 [[package]]
+name = "pith"
+version = "0.1.0"
+
+[[package]]
 name = "pith-blobstore"
 version = "0.1.0"
 
@@ -1746,17 +1750,6 @@ name = "pith-cache-native"
 version = "0.1.0"
 dependencies = [
  "pith-cache",
-]
-
-[[package]]
-name = "pith-cli"
-version = "0.1.0"
-
-[[package]]
-name = "pith-cli-native"
-version = "0.1.0"
-dependencies = [
- "pith-cli",
 ]
 
 [[package]]
@@ -2005,25 +1998,6 @@ name = "pith-timezone"
 version = "0.1.0"
 dependencies = [
  "jiff",
-]
-
-[[package]]
-name = "pith-url"
-version = "0.1.0"
-dependencies = [
- "url",
-]
-
-[[package]]
-name = "pith-uuid"
-version = "0.1.0"
-
-[[package]]
-name = "pith-uuid-native"
-version = "0.1.0"
-dependencies = [
- "pith-uuid",
- "uuid",
 ]
 
 [[package]]
