@@ -55,8 +55,20 @@
 //! | UUID | [`uuid`](https://docs.rs/uuid) | Full RFC 4122 support |
 //! | Regex | [`regex`](https://docs.rs/regex) | Fast, safe, dominant |
 //! | Async runtime | [`tokio`](https://docs.rs/tokio) | Ecosystem standard |
+//! | Multi-pattern matching | [`aho-corasick`](https://docs.rs/aho-corasick) | Used by regex internally |
+//! | Library error types | [`thiserror`](https://docs.rs/thiserror) | Dominant derive macro |
+//! | App error handling | [`anyhow`](https://docs.rs/anyhow) | Dominant for apps |
+//! | Incremental parsing | [`tree-sitter`](https://docs.rs/tree-sitter) | Dominant in tooling |
 //!
 //! Creating pith wrappers for these would add friction without benefit.
+//!
+//! ## What Pith Is Not
+//!
+//! Pith does not try to:
+//! - **Wrap solved domains** - use serde, clap, regex directly
+//! - **Abstract stylistic choices** - error handling, parser combinators
+//! - **Replace the ecosystem** - we complement it, not compete
+//! - **Be a framework** - pith is à la carte
 //!
 //! ## Usage
 //!
@@ -64,14 +76,14 @@
 //!
 //! ```toml
 //! [dependencies]
-//! pith-filesystem = "0.1"
-//! pith-http = "0.1"
-//! pith-clocks = "0.1"
+//! rhizome-pith-filesystem = "0.1"
+//! rhizome-pith-http = "0.1"
+//! rhizome-pith-clocks = "0.1"
 //!
 //! # Native backends
-//! pith-filesystem-native = "0.1"
-//! pith-http-native = "0.1"
-//! pith-clocks-native = "0.1"
+//! rhizome-pith-filesystem-native = "0.1"
+//! rhizome-pith-http-native = "0.1"
+//! rhizome-pith-clocks-native = "0.1"
 //! ```
 //!
 //! ## Backends
