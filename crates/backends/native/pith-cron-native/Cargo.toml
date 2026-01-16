@@ -1,0 +1,10 @@
+[package]
+name = "pith-cron-native"
+description = "Native cron expression implementation"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+pith-cron = { path = "../../../interfaces/pith-cron" }
