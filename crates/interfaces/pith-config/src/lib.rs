@@ -2,16 +2,27 @@
 //!
 //! Based on WASI runtime-config.
 
+use std::fmt;
+
 /// Configuration errors.
-#[derive(Debug, thiserror::Error)]
+#[derive(Debug)]
 pub enum Error {
-    #[error("key not found: {0}")]
     NotFound(String),
-    #[error("invalid value: {0}")]
     InvalidValue(String),
-    #[error("{0}")]
     Other(String),
 }
+
+impl fmt::Display for Error {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        match self {
+            Error::NotFound(key) => write!(f, "key not found: {}", key),
+            Error::InvalidValue(msg) => write!(f, "invalid value: {}", msg),
+            Error::Other(msg) => write!(f, "{}", msg),
+        }
+    }
+}
+
+impl std::error::Error for Error {}
 
 /// A configuration source.
 pub trait Config {

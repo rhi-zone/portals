@@ -2,19 +2,29 @@
 //!
 //! Based on WASI messaging.
 
+use std::fmt;
 use std::future::Future;
 use std::time::Duration;
 
 /// Messaging errors.
-#[derive(Debug, thiserror::Error)]
+#[derive(Debug)]
 pub enum Error {
-    #[error("channel closed")]
     Closed,
-    #[error("timeout")]
     Timeout,
-    #[error("messaging error: {0}")]
     Other(String),
 }
+
+impl fmt::Display for Error {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        match self {
+            Error::Closed => write!(f, "channel closed"),
+            Error::Timeout => write!(f, "timeout"),
+            Error::Other(msg) => write!(f, "messaging error: {}", msg),
+        }
+    }
+}
+
+impl std::error::Error for Error {}
 
 /// A message with payload and metadata.
 #[derive(Debug, Clone)]

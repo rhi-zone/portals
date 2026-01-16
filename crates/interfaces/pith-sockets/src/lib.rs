@@ -6,28 +6,43 @@ use std::future::Future;
 use std::net::{IpAddr, SocketAddr};
 
 /// Socket errors.
-#[derive(Debug, thiserror::Error)]
+#[derive(Debug)]
 pub enum Error {
-    #[error("address in use")]
     AddressInUse,
-    #[error("address not available")]
     AddressNotAvailable,
-    #[error("connection refused")]
     ConnectionRefused,
-    #[error("connection reset")]
     ConnectionReset,
-    #[error("connection aborted")]
     ConnectionAborted,
-    #[error("not connected")]
     NotConnected,
-    #[error("timeout")]
     Timeout,
-    #[error("access denied")]
     Access,
-    #[error("I/O error: {0}")]
-    Io(#[from] std::io::Error),
-    #[error("{0}")]
+    Io(std::io::Error),
     Other(String),
+}
+
+impl std::fmt::Display for Error {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            Self::AddressInUse => write!(f, "address in use"),
+            Self::AddressNotAvailable => write!(f, "address not available"),
+            Self::ConnectionRefused => write!(f, "connection refused"),
+            Self::ConnectionReset => write!(f, "connection reset"),
+            Self::ConnectionAborted => write!(f, "connection aborted"),
+            Self::NotConnected => write!(f, "not connected"),
+            Self::Timeout => write!(f, "timeout"),
+            Self::Access => write!(f, "access denied"),
+            Self::Io(e) => write!(f, "I/O error: {}", e),
+            Self::Other(s) => write!(f, "{}", s),
+        }
+    }
+}
+
+impl std::error::Error for Error {}
+
+impl From<std::io::Error> for Error {
+    fn from(e: std::io::Error) -> Self {
+        Self::Io(e)
+    }
 }
 
 /// A TCP socket that can connect to a remote address.

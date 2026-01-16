@@ -2,22 +2,32 @@
 //!
 //! Based on RFC 6455.
 
+use std::fmt;
 use std::future::Future;
 
 /// WebSocket errors.
-#[derive(Debug, thiserror::Error)]
+#[derive(Debug)]
 pub enum Error {
-    #[error("connection failed: {0}")]
     ConnectionFailed(String),
-    #[error("send failed")]
     SendFailed,
-    #[error("connection closed")]
     Closed,
-    #[error("protocol error: {0}")]
     Protocol(String),
-    #[error("{0}")]
     Other(String),
 }
+
+impl fmt::Display for Error {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        match self {
+            Error::ConnectionFailed(msg) => write!(f, "connection failed: {}", msg),
+            Error::SendFailed => write!(f, "send failed"),
+            Error::Closed => write!(f, "connection closed"),
+            Error::Protocol(msg) => write!(f, "protocol error: {}", msg),
+            Error::Other(msg) => write!(f, "{}", msg),
+        }
+    }
+}
+
+impl std::error::Error for Error {}
 
 /// A WebSocket message.
 #[derive(Debug, Clone, PartialEq, Eq)]

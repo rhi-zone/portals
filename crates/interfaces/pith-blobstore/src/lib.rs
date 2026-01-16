@@ -2,20 +2,30 @@
 //!
 //! Based on WASI blobstore.
 
+use std::fmt;
 use std::future::Future;
 
 /// Blob storage errors.
-#[derive(Debug, thiserror::Error)]
+#[derive(Debug)]
 pub enum Error {
-    #[error("container not found: {0}")]
     ContainerNotFound(String),
-    #[error("object not found: {0}")]
     ObjectNotFound(String),
-    #[error("container already exists: {0}")]
     ContainerExists(String),
-    #[error("store error: {0}")]
     Store(String),
 }
+
+impl fmt::Display for Error {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        match self {
+            Error::ContainerNotFound(name) => write!(f, "container not found: {}", name),
+            Error::ObjectNotFound(name) => write!(f, "object not found: {}", name),
+            Error::ContainerExists(name) => write!(f, "container already exists: {}", name),
+            Error::Store(msg) => write!(f, "store error: {}", msg),
+        }
+    }
+}
+
+impl std::error::Error for Error {}
 
 /// Metadata for a stored object.
 #[derive(Debug, Clone)]

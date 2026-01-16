@@ -1,5 +1,6 @@
 //! SQL database interfaces.
 
+use std::fmt;
 use std::future::Future;
 
 /// SQL value types.
@@ -89,27 +90,36 @@ impl Row {
 }
 
 /// Database errors.
-#[derive(Debug, thiserror::Error)]
+#[derive(Debug)]
 pub enum Error {
     /// Connection failed.
-    #[error("connection failed")]
     ConnectionFailed,
     /// Query syntax error.
-    #[error("syntax error: {0}")]
     SyntaxError(String),
     /// Constraint violation.
-    #[error("constraint violation: {0}")]
     ConstraintViolation(String),
     /// Type mismatch.
-    #[error("type mismatch")]
     TypeMismatch,
     /// Database is busy/locked.
-    #[error("database busy")]
     Busy,
     /// Other error.
-    #[error("{0}")]
     Other(String),
 }
+
+impl fmt::Display for Error {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        match self {
+            Error::ConnectionFailed => write!(f, "connection failed"),
+            Error::SyntaxError(msg) => write!(f, "syntax error: {}", msg),
+            Error::ConstraintViolation(msg) => write!(f, "constraint violation: {}", msg),
+            Error::TypeMismatch => write!(f, "type mismatch"),
+            Error::Busy => write!(f, "database busy"),
+            Error::Other(msg) => write!(f, "{}", msg),
+        }
+    }
+}
+
+impl std::error::Error for Error {}
 
 /// A database connection.
 pub trait Connection {

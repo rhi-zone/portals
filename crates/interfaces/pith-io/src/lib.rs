@@ -5,18 +5,27 @@
 use std::future::Future;
 
 /// Error type for stream operations.
-#[derive(Debug, Clone, PartialEq, Eq, thiserror::Error)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub enum StreamError {
     /// End of stream reached.
-    #[error("stream closed")]
     Closed,
     /// Last operation failed.
-    #[error("last operation failed")]
     LastOperationFailed,
     /// Other error.
-    #[error("{0}")]
     Other(String),
 }
+
+impl std::fmt::Display for StreamError {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            Self::Closed => write!(f, "stream closed"),
+            Self::LastOperationFailed => write!(f, "last operation failed"),
+            Self::Other(s) => write!(f, "{}", s),
+        }
+    }
+}
+
+impl std::error::Error for StreamError {}
 
 /// An input stream.
 pub trait InputStream {

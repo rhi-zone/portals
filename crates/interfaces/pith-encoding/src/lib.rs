@@ -1,5 +1,7 @@
 //! Encoding/decoding interfaces.
 
+use std::fmt;
+
 /// Base64 encoding/decoding.
 pub trait Base64 {
     /// Encode bytes to base64 string.
@@ -40,21 +42,30 @@ pub trait UrlEncoding {
 }
 
 /// Decoding errors.
-#[derive(Debug, thiserror::Error)]
+#[derive(Debug)]
 pub enum DecodeError {
     /// Invalid character in input.
-    #[error("invalid character: {0:?}")]
     InvalidCharacter(char),
     /// Invalid length.
-    #[error("invalid length")]
     InvalidLength,
     /// Invalid padding.
-    #[error("invalid padding")]
     InvalidPadding,
     /// Invalid UTF-8.
-    #[error("invalid UTF-8")]
     InvalidUtf8,
     /// Other error.
-    #[error("{0}")]
     Other(String),
 }
+
+impl fmt::Display for DecodeError {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        match self {
+            DecodeError::InvalidCharacter(c) => write!(f, "invalid character: {:?}", c),
+            DecodeError::InvalidLength => write!(f, "invalid length"),
+            DecodeError::InvalidPadding => write!(f, "invalid padding"),
+            DecodeError::InvalidUtf8 => write!(f, "invalid UTF-8"),
+            DecodeError::Other(msg) => write!(f, "{}", msg),
+        }
+    }
+}
+
+impl std::error::Error for DecodeError {}

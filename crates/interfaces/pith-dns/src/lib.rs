@@ -1,18 +1,28 @@
 //! DNS interfaces.
 
+use std::fmt;
 use std::future::Future;
 use std::net::{IpAddr, Ipv4Addr, Ipv6Addr};
 
 /// DNS errors.
-#[derive(Debug, thiserror::Error)]
+#[derive(Debug)]
 pub enum Error {
-    #[error("lookup failed: {0}")]
     Lookup(String),
-    #[error("no records found")]
     NoRecords,
-    #[error("{0}")]
     Other(String),
 }
+
+impl fmt::Display for Error {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        match self {
+            Error::Lookup(msg) => write!(f, "lookup failed: {}", msg),
+            Error::NoRecords => write!(f, "no records found"),
+            Error::Other(msg) => write!(f, "{}", msg),
+        }
+    }
+}
+
+impl std::error::Error for Error {}
 
 /// A DNS resolver.
 pub trait Resolver {

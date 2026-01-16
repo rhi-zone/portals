@@ -1,5 +1,7 @@
 //! Cryptographic interfaces.
 
+use std::fmt;
+
 /// A cryptographic hash function.
 pub trait Hash {
     /// The output size in bytes.
@@ -93,24 +95,33 @@ pub trait Kdf {
 }
 
 /// Cryptographic errors.
-#[derive(Debug, thiserror::Error)]
+#[derive(Debug)]
 pub enum CryptoError {
     /// Invalid key size.
-    #[error("invalid key size")]
     InvalidKeySize,
     /// Invalid nonce size.
-    #[error("invalid nonce size")]
     InvalidNonceSize,
     /// Authentication failed (decryption).
-    #[error("authentication failed")]
     AuthenticationFailed,
     /// Invalid signature.
-    #[error("invalid signature")]
     InvalidSignature,
     /// Other error.
-    #[error("{0}")]
     Other(String),
 }
+
+impl fmt::Display for CryptoError {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        match self {
+            CryptoError::InvalidKeySize => write!(f, "invalid key size"),
+            CryptoError::InvalidNonceSize => write!(f, "invalid nonce size"),
+            CryptoError::AuthenticationFailed => write!(f, "authentication failed"),
+            CryptoError::InvalidSignature => write!(f, "invalid signature"),
+            CryptoError::Other(msg) => write!(f, "{}", msg),
+        }
+    }
+}
+
+impl std::error::Error for CryptoError {}
 
 /// Constant-time equality comparison.
 fn constant_time_eq(a: &[u8], b: &[u8]) -> bool {

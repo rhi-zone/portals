@@ -8,23 +8,36 @@ Principles and conventions for pith interfaces.
 
 ## Error Handling
 
-### Use `thiserror` for error enums
+### Manual Display and Error impls
+
+Keep dependencies minimal - use manual impls rather than `thiserror`:
 
 ```rust
-#[derive(Debug, thiserror::Error)]
+#[derive(Debug)]
 pub enum Error {
-    #[error("not found")]
     NotFound,
-    #[error("invalid input: {0}")]
     Invalid(String),
+    Other(String),
 }
+
+impl std::fmt::Display for Error {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            Self::NotFound => write!(f, "not found"),
+            Self::Invalid(s) => write!(f, "invalid input: {}", s),
+            Self::Other(s) => write!(f, "{}", s),
+        }
+    }
+}
+
+impl std::error::Error for Error {}
 ```
 
 ### Error granularity
 
 - Per-interface error enums (not one giant error type)
 - Include a catch-all variant for backend-specific errors: `Other(String)`
-- Use `#[from]` for common conversions (e.g., `std::io::Error`)
+- Add manual `From` impls for common conversions (e.g., `std::io::Error`)
 
 ### When to use Result vs Option vs bare values
 
