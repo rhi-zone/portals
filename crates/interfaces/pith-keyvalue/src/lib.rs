@@ -2,16 +2,26 @@
 //!
 //! Based on WASI key-value.
 
+use std::fmt;
 use std::future::Future;
 
 /// Key-value store errors.
-#[derive(Debug, thiserror::Error)]
+#[derive(Debug)]
 pub enum Error {
-    #[error("key not found")]
     NotFound,
-    #[error("store error: {0}")]
     Store(String),
 }
+
+impl fmt::Display for Error {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        match self {
+            Error::NotFound => write!(f, "key not found"),
+            Error::Store(msg) => write!(f, "store error: {}", msg),
+        }
+    }
+}
+
+impl std::error::Error for Error {}
 
 /// A key-value store.
 pub trait KeyValue {

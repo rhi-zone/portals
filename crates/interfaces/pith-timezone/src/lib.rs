@@ -2,19 +2,30 @@
 //!
 //! Wraps the `jiff` crate for timezone operations.
 
+use std::fmt;
+
 pub use jiff::tz::{TimeZone, TimeZoneDatabase};
 pub use jiff::{Timestamp, Zoned};
 
 /// Timezone errors.
-#[derive(Debug, thiserror::Error)]
+#[derive(Debug)]
 pub enum Error {
-    #[error("invalid timezone: {0}")]
     InvalidTimezone(String),
-    #[error("conversion error: {0}")]
     Conversion(String),
-    #[error("{0}")]
     Other(String),
 }
+
+impl fmt::Display for Error {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        match self {
+            Error::InvalidTimezone(msg) => write!(f, "invalid timezone: {}", msg),
+            Error::Conversion(msg) => write!(f, "conversion error: {}", msg),
+            Error::Other(msg) => write!(f, "{}", msg),
+        }
+    }
+}
+
+impl std::error::Error for Error {}
 
 /// Get the system's local timezone.
 pub fn local() -> TimeZone {

@@ -6,20 +6,35 @@ use std::collections::HashMap;
 use std::future::Future;
 
 /// HTTP errors.
-#[derive(Debug, thiserror::Error)]
+#[derive(Debug)]
 pub enum Error {
-    #[error("invalid URL")]
     InvalidUrl,
-    #[error("connection failed")]
     ConnectionFailed,
-    #[error("timeout")]
     Timeout,
-    #[error("protocol error")]
     ProtocolError,
-    #[error("I/O error: {0}")]
-    Io(#[from] std::io::Error),
-    #[error("{0}")]
+    Io(std::io::Error),
     Other(String),
+}
+
+impl std::fmt::Display for Error {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            Self::InvalidUrl => write!(f, "invalid URL"),
+            Self::ConnectionFailed => write!(f, "connection failed"),
+            Self::Timeout => write!(f, "timeout"),
+            Self::ProtocolError => write!(f, "protocol error"),
+            Self::Io(e) => write!(f, "I/O error: {}", e),
+            Self::Other(s) => write!(f, "{}", s),
+        }
+    }
+}
+
+impl std::error::Error for Error {}
+
+impl From<std::io::Error> for Error {
+    fn from(e: std::io::Error) -> Self {
+        Self::Io(e)
+    }
 }
 
 /// HTTP method.

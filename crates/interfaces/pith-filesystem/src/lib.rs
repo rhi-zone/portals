@@ -7,24 +7,39 @@ use std::path::Path;
 pub use pith_io::{InputStream, OutputStream, StreamError};
 
 /// Filesystem error types.
-#[derive(Debug, thiserror::Error)]
+#[derive(Debug)]
 pub enum Error {
-    #[error("access denied")]
     Access,
-    #[error("already exists")]
     Exist,
-    #[error("not found")]
     NotFound,
-    #[error("not a directory")]
     NotDirectory,
-    #[error("is a directory")]
     IsDirectory,
-    #[error("invalid argument")]
     Invalid,
-    #[error("I/O error: {0}")]
-    Io(#[from] std::io::Error),
-    #[error("{0}")]
+    Io(std::io::Error),
     Other(String),
+}
+
+impl std::fmt::Display for Error {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            Self::Access => write!(f, "access denied"),
+            Self::Exist => write!(f, "already exists"),
+            Self::NotFound => write!(f, "not found"),
+            Self::NotDirectory => write!(f, "not a directory"),
+            Self::IsDirectory => write!(f, "is a directory"),
+            Self::Invalid => write!(f, "invalid argument"),
+            Self::Io(e) => write!(f, "I/O error: {}", e),
+            Self::Other(s) => write!(f, "{}", s),
+        }
+    }
+}
+
+impl std::error::Error for Error {}
+
+impl From<std::io::Error> for Error {
+    fn from(e: std::io::Error) -> Self {
+        Self::Io(e)
+    }
 }
 
 /// File type.

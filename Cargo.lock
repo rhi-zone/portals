@@ -1710,9 +1710,6 @@ checksum = "8b870d8c151b6f2fb93e84a13146138f05d02ed11c7e7c54f8826aaaf7c9f184"
 [[package]]
 name = "pith-blobstore"
 version = "0.1.0"
-dependencies = [
- "thiserror 2.0.17",
-]
 
 [[package]]
 name = "pith-blobstore-native"
@@ -1748,9 +1745,6 @@ dependencies = [
 [[package]]
 name = "pith-config"
 version = "0.1.0"
-dependencies = [
- "thiserror 2.0.17",
-]
 
 [[package]]
 name = "pith-config-native"
@@ -1762,9 +1756,6 @@ dependencies = [
 [[package]]
 name = "pith-crypto"
 version = "0.1.0"
-dependencies = [
- "thiserror 2.0.17",
-]
 
 [[package]]
 name = "pith-crypto-native"
@@ -1783,9 +1774,6 @@ dependencies = [
 [[package]]
 name = "pith-dns"
 version = "0.1.0"
-dependencies = [
- "thiserror 2.0.17",
-]
 
 [[package]]
 name = "pith-dns-native"
@@ -1799,9 +1787,6 @@ dependencies = [
 [[package]]
 name = "pith-encoding"
 version = "0.1.0"
-dependencies = [
- "thiserror 2.0.17",
-]
 
 [[package]]
 name = "pith-encoding-native"
@@ -1816,7 +1801,6 @@ name = "pith-filesystem"
 version = "0.1.0"
 dependencies = [
  "pith-io",
- "thiserror 2.0.17",
 ]
 
 [[package]]
@@ -1830,9 +1814,6 @@ dependencies = [
 [[package]]
 name = "pith-http"
 version = "0.1.0"
-dependencies = [
- "thiserror 2.0.17",
-]
 
 [[package]]
 name = "pith-http-native"
@@ -1853,9 +1834,6 @@ dependencies = [
 [[package]]
 name = "pith-io"
 version = "0.1.0"
-dependencies = [
- "thiserror 2.0.17",
-]
 
 [[package]]
 name = "pith-io-native"
@@ -1868,9 +1846,6 @@ dependencies = [
 [[package]]
 name = "pith-keyvalue"
 version = "0.1.0"
-dependencies = [
- "thiserror 2.0.17",
-]
 
 [[package]]
 name = "pith-keyvalue-native"
@@ -1896,9 +1871,6 @@ dependencies = [
 [[package]]
 name = "pith-messaging"
 version = "0.1.0"
-dependencies = [
- "thiserror 2.0.17",
-]
 
 [[package]]
 name = "pith-messaging-native"
@@ -1934,9 +1906,6 @@ dependencies = [
 [[package]]
 name = "pith-sockets"
 version = "0.1.0"
-dependencies = [
- "thiserror 2.0.17",
-]
 
 [[package]]
 name = "pith-sockets-native"
@@ -1949,9 +1918,6 @@ dependencies = [
 [[package]]
 name = "pith-sql"
 version = "0.1.0"
-dependencies = [
- "thiserror 2.0.17",
-]
 
 [[package]]
 name = "pith-sql-native"
@@ -1967,23 +1933,18 @@ name = "pith-timezone"
 version = "0.1.0"
 dependencies = [
  "jiff",
- "thiserror 2.0.17",
 ]
 
 [[package]]
 name = "pith-url"
 version = "0.1.0"
 dependencies = [
- "thiserror 2.0.17",
  "url",
 ]
 
 [[package]]
 name = "pith-websocket"
 version = "0.1.0"
-dependencies = [
- "thiserror 2.0.17",
-]
 
 [[package]]
 name = "pith-websocket-native"
