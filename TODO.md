@@ -99,7 +99,7 @@ Application-level interfaces to consider (beyond WASI):
 Potential interface improvements to consider later:
 
 - [x] **Filesystem seek**: Add `Seek` trait for random access file operations
-- **Zero-copy reads**: Add `read_into(&mut self, buf: &mut [u8])` to `InputStream`
+- [x] **Zero-copy reads**: Add `read_into(&mut self, buf: &mut [u8])` to `InputStream`
 
 ## ADRs
 

@@ -29,11 +29,38 @@ impl std::error::Error for StreamError {}
 
 /// An input stream.
 pub trait InputStream {
-    /// Read bytes from the stream.
-    fn read(&mut self, len: usize) -> Result<Vec<u8>, StreamError>;
+    /// Read bytes from the stream into a buffer.
+    ///
+    /// Returns the number of bytes read, or `StreamError::Closed` if EOF.
+    /// This is the zero-copy primitive that implementations must provide.
+    fn read_into(&mut self, buf: &mut [u8]) -> Result<usize, StreamError>;
 
-    /// Block until data is available.
-    fn blocking_read(&mut self, len: usize) -> Result<Vec<u8>, StreamError>;
+    /// Block until data is available, then read into buffer.
+    ///
+    /// Returns the number of bytes read, or `StreamError::Closed` if EOF.
+    fn blocking_read_into(&mut self, buf: &mut [u8]) -> Result<usize, StreamError>;
+
+    /// Read bytes from the stream, allocating a new buffer.
+    ///
+    /// This is a convenience method that allocates. For performance-sensitive
+    /// code, prefer `read_into`.
+    fn read(&mut self, len: usize) -> Result<Vec<u8>, StreamError> {
+        let mut buf = vec![0u8; len];
+        let n = self.read_into(&mut buf)?;
+        buf.truncate(n);
+        Ok(buf)
+    }
+
+    /// Block until data is available, allocating a new buffer.
+    ///
+    /// This is a convenience method that allocates. For performance-sensitive
+    /// code, prefer `blocking_read_into`.
+    fn blocking_read(&mut self, len: usize) -> Result<Vec<u8>, StreamError> {
+        let mut buf = vec![0u8; len];
+        let n = self.blocking_read_into(&mut buf)?;
+        buf.truncate(n);
+        Ok(buf)
+    }
 
     /// Subscribe to readiness.
     fn subscribe(&self) -> impl Future<Output = ()>;

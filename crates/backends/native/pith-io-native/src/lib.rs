@@ -19,21 +19,17 @@ impl<R> ReaderStream<R> {
 }
 
 impl<R: Read> InputStream for ReaderStream<R> {
-    fn read(&mut self, len: usize) -> Result<Vec<u8>, StreamError> {
-        let mut buf = vec![0u8; len];
-        match self.inner.read(&mut buf) {
+    fn read_into(&mut self, buf: &mut [u8]) -> Result<usize, StreamError> {
+        match self.inner.read(buf) {
             Ok(0) => Err(StreamError::Closed),
-            Ok(n) => {
-                buf.truncate(n);
-                Ok(buf)
-            }
+            Ok(n) => Ok(n),
             Err(_) => Err(StreamError::LastOperationFailed),
         }
     }
 
-    fn blocking_read(&mut self, len: usize) -> Result<Vec<u8>, StreamError> {
+    fn blocking_read_into(&mut self, buf: &mut [u8]) -> Result<usize, StreamError> {
         // For std::io::Read, read() is already blocking
-        self.read(len)
+        self.read_into(buf)
     }
 
     fn subscribe(&self) -> impl std::future::Future<Output = ()> {
@@ -147,6 +143,24 @@ mod tests {
         let mut stream = ReaderStream::new(Cursor::new(data.to_vec()));
         let result = stream.read(5).unwrap();
         assert_eq!(&result, b"hello");
+    }
+
+    #[test]
+    fn reader_stream_read_into_zero_copy() {
+        let data = b"hello world";
+        let mut stream = ReaderStream::new(Cursor::new(data.to_vec()));
+
+        // Read into pre-allocated buffer
+        let mut buf = [0u8; 5];
+        let n = stream.read_into(&mut buf).unwrap();
+        assert_eq!(n, 5);
+        assert_eq!(&buf, b"hello");
+
+        // Read more
+        let mut buf = [0u8; 10];
+        let n = stream.read_into(&mut buf).unwrap();
+        assert_eq!(n, 6); // " world" = 6 bytes
+        assert_eq!(&buf[..n], b" world");
     }
 
     #[test]
