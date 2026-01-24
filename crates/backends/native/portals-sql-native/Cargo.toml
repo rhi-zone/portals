@@ -1,5 +1,5 @@
 [package]
-name = "rhizome-pith-sql-native"
+name = "rhi-portals-sql-native"
 description = "Native implementation of pith-sql using libsql"
 version.workspace = true
 edition.workspace = true
@@ -7,6 +7,6 @@ license.workspace = true
 repository.workspace = true
 
 [dependencies]
-rhizome-rhi-portals-sql = { path = "../../../interfaces/pith-sql" }
+rhi-portals-sql = { path = "../../../interfaces/portals-sql" }
 libsql.workspace = true
 tokio = { workspace = true }

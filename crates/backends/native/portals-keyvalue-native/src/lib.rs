@@ -1,6 +1,6 @@
 //! Native key-value store implementation.
 
-use rhizome_rhi_portals_keyvalue::{AtomicKeyValue, Error, KeyValue};
+use rhi_portals_keyvalue::{AtomicKeyValue, Error, KeyValue};
 use std::collections::HashMap;
 use std::sync::RwLock;
 

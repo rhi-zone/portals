@@ -1,5 +1,5 @@
 [package]
-name = "rhizome-pith-logging-wasm"
+name = "rhi-portals-logging-wasm"
 description = "WASM implementation of pith-logging"
 version.workspace = true
 edition.workspace = true
@@ -7,7 +7,7 @@ license.workspace = true
 repository.workspace = true
 
 [dependencies]
-rhizome-rhi-portals-logging = { path = "../../../interfaces/pith-logging" }
+rhi-portals-logging = { path = "../../../interfaces/portals-logging" }
 
 [dependencies.web-sys]
 version = "0.3"

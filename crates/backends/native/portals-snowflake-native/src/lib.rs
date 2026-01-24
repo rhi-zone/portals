@@ -1,6 +1,6 @@
 //! Native snowflake ID implementation.
 
-use rhizome_rhi_portals_snowflake::{Snowflake, SnowflakeError, SnowflakeId};
+use rhi_portals_snowflake::{Snowflake, SnowflakeError, SnowflakeId};
 use std::sync::atomic::{AtomicU64, Ordering};
 use std::time::{SystemTime, UNIX_EPOCH};
 

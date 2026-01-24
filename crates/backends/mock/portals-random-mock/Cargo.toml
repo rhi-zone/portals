@@ -1,5 +1,5 @@
 [package]
-name = "rhizome-pith-random-mock"
+name = "rhi-portals-random-mock"
 description = "Mock implementation of pith-random for testing"
 version.workspace = true
 edition.workspace = true
@@ -7,4 +7,4 @@ license.workspace = true
 repository.workspace = true
 
 [dependencies]
-rhizome-rhi-portals-random = { path = "../../../interfaces/pith-random" }
+rhi-portals-random = { path = "../../../interfaces/portals-random" }

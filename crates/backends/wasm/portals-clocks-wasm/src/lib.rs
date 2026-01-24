@@ -5,7 +5,7 @@
 //! - `performance.now()` for monotonic clock
 //! - `setTimeout` for timers
 
-use rhizome_rhi_portals_clocks::{MonotonicClock, WallClock};
+use rhi_portals_clocks::{MonotonicClock, WallClock};
 use std::time::Duration;
 
 /// Wall clock using JavaScript Date.

@@ -1,5 +1,5 @@
 [package]
-name = "rhizome-pith-snowflake"
+name = "rhi-portals-snowflake"
 description = "Snowflake ID interfaces"
 version.workspace = true
 edition.workspace = true

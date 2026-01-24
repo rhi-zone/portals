@@ -1,5 +1,5 @@
 [package]
-name = "rhizome-pith-cache-native"
+name = "rhi-portals-cache-native"
 description = "Native in-memory cache implementation"
 version.workspace = true
 edition.workspace = true
@@ -7,4 +7,4 @@ license.workspace = true
 repository.workspace = true
 
 [dependencies]
-rhizome-rhi-portals-cache = { path = "../../../interfaces/pith-cache" }
+rhi-portals-cache = { path = "../../../interfaces/portals-cache" }

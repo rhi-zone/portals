@@ -2,7 +2,7 @@
 //!
 //! Provides controllable clocks that allow tests to manipulate time.
 
-use rhizome_rhi_portals_clocks::{MonotonicClock, WallClock};
+use rhi_portals_clocks::{MonotonicClock, WallClock};
 use std::sync::atomic::{AtomicU64, Ordering};
 use std::sync::Arc;
 use std::time::Duration;

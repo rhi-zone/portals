@@ -1,5 +1,5 @@
 [package]
-name = "rhizome-pith-io"
+name = "rhi-portals-io"
 description = "I/O interfaces (streams, polling)"
 version.workspace = true
 edition.workspace = true

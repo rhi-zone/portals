@@ -1,5 +1,5 @@
 [package]
-name = "rhizome-pith-keyvalue"
+name = "rhi-portals-keyvalue"
 description = "Key-value store interfaces"
 version.workspace = true
 edition.workspace = true

@@ -1,5 +1,5 @@
 [package]
-name = "rhizome-pith-clocks"
+name = "rhi-portals-clocks"
 description = "Clock interfaces (wall clock, monotonic clock)"
 version.workspace = true
 edition.workspace = true

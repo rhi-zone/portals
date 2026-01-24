@@ -1,5 +1,5 @@
 [package]
-name = "rhizome-pith-random-wasm"
+name = "rhi-portals-random-wasm"
 description = "WASM implementation of pith-random"
 version.workspace = true
 edition.workspace = true
@@ -7,7 +7,7 @@ license.workspace = true
 repository.workspace = true
 
 [dependencies]
-rhizome-rhi-portals-random = { path = "../../../interfaces/pith-random" }
+rhi-portals-random = { path = "../../../interfaces/portals-random" }
 getrandom = { version = "0.3", features = ["wasm_js"] }
 
 [dev-dependencies]

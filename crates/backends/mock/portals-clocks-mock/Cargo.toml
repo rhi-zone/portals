@@ -1,5 +1,5 @@
 [package]
-name = "rhizome-pith-clocks-mock"
+name = "rhi-portals-clocks-mock"
 description = "Mock implementation of pith-clocks for testing"
 version.workspace = true
 edition.workspace = true
@@ -7,4 +7,4 @@ license.workspace = true
 repository.workspace = true
 
 [dependencies]
-rhizome-rhi-portals-clocks = { path = "../../../interfaces/pith-clocks" }
+rhi-portals-clocks = { path = "../../../interfaces/portals-clocks" }

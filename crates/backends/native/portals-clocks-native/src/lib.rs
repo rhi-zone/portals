@@ -1,6 +1,6 @@
 //! Native implementation of pith-clocks.
 
-use rhizome_rhi_portals_clocks::{MonotonicClock, WallClock};
+use rhi_portals_clocks::{MonotonicClock, WallClock};
 use std::time::{Duration, Instant, SystemTime, UNIX_EPOCH};
 
 /// Wall clock using system time.

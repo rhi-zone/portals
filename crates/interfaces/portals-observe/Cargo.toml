@@ -1,5 +1,5 @@
 [package]
-name = "rhizome-pith-observe"
+name = "rhi-portals-observe"
 description = "Observability/telemetry interfaces"
 version.workspace = true
 edition.workspace = true

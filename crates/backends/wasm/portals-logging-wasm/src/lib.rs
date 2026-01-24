@@ -2,7 +2,7 @@
 //!
 //! Uses browser console API for output.
 
-use rhizome_rhi_portals_logging::{Level, Logger, Record};
+use rhi_portals_logging::{Level, Logger, Record};
 
 /// Logger that outputs to the browser console.
 #[derive(Debug, Clone)]

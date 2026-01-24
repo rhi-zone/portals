@@ -1,5 +1,5 @@
 [package]
-name = "rhizome-pith-sql"
+name = "rhi-portals-sql"
 description = "SQL database interfaces"
 version.workspace = true
 edition.workspace = true

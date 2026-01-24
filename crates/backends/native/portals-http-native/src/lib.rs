@@ -1,6 +1,6 @@
 //! Native implementation of pith-http using reqwest.
 
-use rhizome_rhi_portals_http::{Error, HttpClient, Method, Request, Response};
+use rhi_portals_http::{Error, HttpClient, Method, Request, Response};
 
 /// HTTP client using reqwest.
 #[derive(Debug, Clone)]

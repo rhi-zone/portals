@@ -1,5 +1,5 @@
 [package]
-name = "rhizome-pith-dns"
+name = "rhi-portals-dns"
 description = "DNS interfaces"
 version.workspace = true
 edition.workspace = true
