@@ -1,4 +1,4 @@
-//! WASM implementation of pith-websocket.
+//! WASM implementation of portals-websocket.
 //!
 //! Uses the WebSocket API via `gloo-net`.
 

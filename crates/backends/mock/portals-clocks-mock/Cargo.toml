@@ -1,6 +1,6 @@
 [package]
 name = "rhi-portals-clocks-mock"
-description = "Mock implementation of pith-clocks for testing"
+description = "Mock implementation of portals-clocks for testing"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

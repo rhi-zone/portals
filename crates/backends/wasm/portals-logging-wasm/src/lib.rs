@@ -1,4 +1,4 @@
-//! WASM implementation of pith-logging.
+//! WASM implementation of portals-logging.
 //!
 //! Uses browser console API for output.
 

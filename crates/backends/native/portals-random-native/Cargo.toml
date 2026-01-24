@@ -1,6 +1,6 @@
 [package]
 name = "rhi-portals-random-native"
-description = "Native implementation of pith-random"
+description = "Native implementation of portals-random"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

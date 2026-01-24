@@ -1,4 +1,4 @@
-//! Mock implementation of pith-http for testing.
+//! Mock implementation of portals-http for testing.
 //!
 //! Provides a mock HTTP client that returns canned responses and records requests.
 

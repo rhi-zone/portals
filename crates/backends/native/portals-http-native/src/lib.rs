@@ -1,4 +1,4 @@
-//! Native implementation of pith-http using reqwest.
+//! Native implementation of portals-http using reqwest.
 
 use rhi_portals_http::{Error, HttpClient, Method, Request, Response};
 

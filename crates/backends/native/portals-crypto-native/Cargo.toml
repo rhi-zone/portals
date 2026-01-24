@@ -1,6 +1,6 @@
 [package]
 name = "rhi-portals-crypto-native"
-description = "Native implementation of pith-crypto"
+description = "Native implementation of portals-crypto"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

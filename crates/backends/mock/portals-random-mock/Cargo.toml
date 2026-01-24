@@ -1,6 +1,6 @@
 [package]
 name = "rhi-portals-random-mock"
-description = "Mock implementation of pith-random for testing"
+description = "Mock implementation of portals-random for testing"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

@@ -1,4 +1,4 @@
-//! Native implementation of pith-io.
+//! Native implementation of portals-io.
 
 use rhi_portals_io::{InputStream, OutputStream, Pollable, Seek, SeekFrom, StreamError};
 use std::io::{Read, Write};

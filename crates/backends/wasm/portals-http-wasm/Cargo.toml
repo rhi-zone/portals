@@ -1,6 +1,6 @@
 [package]
 name = "rhi-portals-http-wasm"
-description = "WASM implementation of pith-http"
+description = "WASM implementation of portals-http"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

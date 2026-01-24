@@ -1,4 +1,4 @@
-//! Mock implementation of pith-clocks for testing.
+//! Mock implementation of portals-clocks for testing.
 //!
 //! Provides controllable clocks that allow tests to manipulate time.
 
