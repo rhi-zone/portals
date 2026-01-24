@@ -1,4 +1,4 @@
-//! Native implementation of pith-sockets using tokio.
+//! Native implementation of portals-sockets using tokio.
 
 use rhi_portals_sockets::{Error, Resolver, TcpConnect, TcpListener, TcpStream, UdpSocket};
 use std::net::{IpAddr, SocketAddr};

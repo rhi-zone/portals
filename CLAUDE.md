@@ -20,9 +20,9 @@ crates/
 **What:** Traits defining capabilities. No implementations, just contracts.
 
 **Examples:**
-- `rhizome-pith-http` → `HttpClient`, `HttpHandler` traits
-- `rhizome-pith-websocket` → `WebSocketClient`, `WebSocketServer` traits
-- `rhizome-pith-dns` → `Resolver` trait
+- `portals-http` → `HttpClient`, `HttpHandler` traits
+- `portals-websocket` → `WebSocketClient`, `WebSocketServer` traits
+- `portals-dns` → `Resolver` trait
 
 **Rule:** If it's "what can I do?" (client, server, read, write), it's an interface.
 
@@ -31,7 +31,7 @@ crates/
 **What:** Wire format parsing/serialization. Pure Rust, no platform deps.
 
 **Examples:**
-- `rhizome-pith-http1` → HTTP/1.1 request/response parsing
+- `portals-http1` → HTTP/1.1 request/response parsing
 
 **Rule:** If it's "how is data encoded on the wire?", it's a protocol. These are shared across backends - both native and wasm can use the same HTTP parser.
 
@@ -40,8 +40,8 @@ crates/
 **What:** Platform-specific implementations of interface traits. Wraps libraries.
 
 **Examples:**
-- `rhizome-pith-websocket-native` → implements `WebSocketClient` using tungstenite
-- `rhizome-pith-dns-native` → implements `Resolver` using hickory-resolver
+- `portals-websocket-native` → implements `WebSocketClient` using tungstenite
+- `portals-dns-native` → implements `Resolver` using hickory-resolver
 
 **Rule:** If it wraps a library or uses platform APIs, it's a backend.
 
@@ -73,12 +73,12 @@ When making scope decisions (adding/removing interfaces, deferring to ecosystem 
 | Decision | Files to Update |
 |----------|-----------------|
 | Add new interface | `Cargo.toml` (workspace), `DESIGN.md` (category tables) |
-| Remove interface / defer to ecosystem | `docs/RECOMMENDATIONS.md` (solved domains table), `crates/pith/src/lib.rs` (docs) |
+| Remove interface / defer to ecosystem | `docs/RECOMMENDATIONS.md` (solved domains table), `crates/portals/src/lib.rs` (docs) |
 | Add to "watching" list | `docs/RECOMMENDATIONS.md` (contested domains table) |
 | Change design guidelines | `DESIGN.md` |
-| Change scope/philosophy | `docs/RECOMMENDATIONS.md` ("What Portals Is/Is Not"), `crates/pith/src/lib.rs` |
+| Change scope/philosophy | `docs/RECOMMENDATIONS.md` ("What Portals Is/Is Not"), `crates/portals/src/lib.rs` |
 
-The `rhizome-pith` meta-crate (`crates/pith/src/lib.rs`) is the public-facing docs.rs documentation - keep it in sync with recommendations.
+The `portals` meta-crate (`crates/portals/src/lib.rs`) is the public-facing docs.rs documentation - keep it in sync with recommendations.
 
 ## Negative Constraints
 

@@ -1,6 +1,6 @@
 [package]
 name = "rhi-portals-clocks-native"
-description = "Native implementation of pith-clocks"
+description = "Native implementation of portals-clocks"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

@@ -1,4 +1,4 @@
-//! WASM implementation of pith-http.
+//! WASM implementation of portals-http.
 //!
 //! Uses the Fetch API via `gloo-net`.
 

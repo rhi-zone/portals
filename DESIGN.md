@@ -58,11 +58,11 @@ Portals's value varies by domain. The goal is **reducing decision fatigue** whil
 
 Fundamental capabilities where abstraction enables portability and testability:
 
-- `rhizome-portals-clocks` - time
-- `rhizome-portals-random` - randomness
-- `rhizome-portals-filesystem` - file I/O
-- `rhizome-portals-io` - streams
-- `rhizome-portals-sockets` - raw networking
+- `portals-clocks` - time
+- `portals-random` - randomness
+- `portals-filesystem` - file I/O
+- `portals-io` - streams
+- `portals-sockets` - raw networking
 
 These have genuinely different implementations across platforms (native, WASM, embedded). The abstraction is the value.
 

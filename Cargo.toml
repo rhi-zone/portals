@@ -69,7 +69,7 @@ members = [
 version = "0.1.0"
 edition = "2024"
 license = "MIT OR Apache-2.0"
-repository = "https://github.com/rhizome-lab/pith"
+repository = "https://github.com/rhi-zone/portals"
 
 [workspace.dependencies]
 tokio = { version = "1", features = ["time", "rt", "macros", "net", "io-util", "rt-multi-thread"] }

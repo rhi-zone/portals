@@ -1,4 +1,4 @@
-//! WASM implementation of pith-random.
+//! WASM implementation of portals-random.
 //!
 //! Uses the Web Crypto API via `getrandom` crate with `wasm_js` feature.
 

@@ -1,6 +1,6 @@
 [package]
 name = "rhi-portals-http-mock"
-description = "Mock implementation of pith-http for testing"
+description = "Mock implementation of portals-http for testing"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

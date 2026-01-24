@@ -1,4 +1,4 @@
-//! WASM implementation of pith-clocks.
+//! WASM implementation of portals-clocks.
 //!
 //! Uses browser APIs:
 //! - `Date.now()` for wall clock

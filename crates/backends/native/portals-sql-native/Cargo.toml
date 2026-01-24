@@ -1,6 +1,6 @@
 [package]
 name = "rhi-portals-sql-native"
-description = "Native implementation of pith-sql using libsql"
+description = "Native implementation of portals-sql using libsql"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

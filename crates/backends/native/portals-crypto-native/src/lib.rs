@@ -1,4 +1,4 @@
-//! Native implementation of pith-crypto using RustCrypto.
+//! Native implementation of portals-crypto using RustCrypto.
 
 use rhi_portals_crypto::{Cipher, CryptoError, Hash, Hmac, Kdf, Signature};
 

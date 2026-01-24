@@ -1,4 +1,4 @@
-//! Native implementation of pith-filesystem.
+//! Native implementation of portals-filesystem.
 
 use rhi_portals_filesystem::{DirEntry, Directory, Error, FileType, Metadata};
 use rhi_portals_io_native::{ReaderStream, WriterStream};
@@ -147,7 +147,7 @@ mod tests {
     fn create_and_read_file() {
         use rhi_portals_filesystem::{InputStream, OutputStream};
 
-        let temp_dir = std::env::temp_dir().join("pith-fs-test-1");
+        let temp_dir = std::env::temp_dir().join("portals-fs-test-1");
         let _ = fs::remove_dir_all(&temp_dir);
         fs::create_dir_all(&temp_dir).unwrap();
 
@@ -173,7 +173,7 @@ mod tests {
 
     #[test]
     fn metadata_works() {
-        let temp_dir = std::env::temp_dir().join("pith-fs-test-2");
+        let temp_dir = std::env::temp_dir().join("portals-fs-test-2");
         let _ = fs::remove_dir_all(&temp_dir);
         fs::create_dir_all(&temp_dir).unwrap();
 
@@ -192,7 +192,7 @@ mod tests {
 
     #[test]
     fn read_dir_works() {
-        let temp_dir = std::env::temp_dir().join("pith-fs-test-3");
+        let temp_dir = std::env::temp_dir().join("portals-fs-test-3");
         let _ = fs::remove_dir_all(&temp_dir);
         fs::create_dir_all(&temp_dir).unwrap();
 
@@ -219,7 +219,7 @@ mod tests {
     fn seek_in_file() {
         use rhi_portals_filesystem::{InputStream, Seek, SeekFrom};
 
-        let temp_dir = std::env::temp_dir().join("pith-fs-test-4");
+        let temp_dir = std::env::temp_dir().join("portals-fs-test-4");
         let _ = fs::remove_dir_all(&temp_dir);
         fs::create_dir_all(&temp_dir).unwrap();
 

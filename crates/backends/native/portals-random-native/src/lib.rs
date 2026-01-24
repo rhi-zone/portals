@@ -1,4 +1,4 @@
-//! Native implementation of pith-random.
+//! Native implementation of portals-random.
 
 use rhi_portals_random::{InsecureRandom, SecureRandom};
 

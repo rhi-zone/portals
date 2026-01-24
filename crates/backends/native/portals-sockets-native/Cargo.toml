@@ -1,6 +1,6 @@
 [package]
 name = "rhi-portals-sockets-native"
-description = "Native implementation of pith-sockets"
+description = "Native implementation of portals-sockets"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

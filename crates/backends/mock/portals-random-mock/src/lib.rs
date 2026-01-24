@@ -1,4 +1,4 @@
-//! Mock implementation of pith-random for testing.
+//! Mock implementation of portals-random for testing.
 //!
 //! Provides deterministic random number generators for reproducible tests.
 

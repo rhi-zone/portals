@@ -1,4 +1,4 @@
-//! Native implementation of pith-sql using libsql.
+//! Native implementation of portals-sql using libsql.
 
 use rhi_portals_sql::{Connection, Error, Row, Value};
 

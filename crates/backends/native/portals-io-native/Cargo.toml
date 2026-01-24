@@ -1,6 +1,6 @@
 [package]
 name = "rhi-portals-io-native"
-description = "Native implementation of pith-io"
+description = "Native implementation of portals-io"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

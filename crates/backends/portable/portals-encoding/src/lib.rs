@@ -1,4 +1,4 @@
-//! Portable implementation of pith-encoding.
+//! Portable implementation of portals-encoding.
 //!
 //! Works on both native and WASM targets.
 

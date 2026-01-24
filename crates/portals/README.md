@@ -1,4 +1,4 @@
-# pith
+# portals
 
 A standard library of interfaces for Rust.
 
@@ -8,22 +8,22 @@ Pith provides capability-based interfaces that enable portability across platfor
 
 - **Portability over power** - simpler interfaces that work everywhere
 - **Reduce decision fatigue** - blessed choices in contested domains
-- **Consistent APIs** - uniform patterns across all pith crates
+- **Consistent APIs** - uniform patterns across all portals crates
 
 ## Quick Start
 
-Add the specific pith crates you need:
+Add the specific portals crates you need:
 
 ```toml
 [dependencies]
-pith-filesystem = "0.1"
-pith-http = "0.1"
-pith-clocks = "0.1"
+portals-filesystem = "0.1"
+portals-http = "0.1"
+portals-clocks = "0.1"
 
 # Native backends
-pith-filesystem-native = "0.1"
-pith-http-native = "0.1"
-pith-clocks-native = "0.1"
+portals-filesystem-native = "0.1"
+portals-http-native = "0.1"
+portals-clocks-native = "0.1"
 ```
 
 ## Solved Domains (Use Directly)
@@ -40,7 +40,7 @@ For these domains, just use the ecosystem standard directly:
 | Regex | [regex](https://crates.io/crates/regex) |
 | Async runtime | [tokio](https://crates.io/crates/tokio) |
 
-See [docs.rs/rhizome-pith](https://docs.rs/rhizome-pith) for the full interface catalog and recommendations.
+See [docs.rs/portals](https://docs.rs/portals) for the full interface catalog and recommendations.
 
 ## License
 

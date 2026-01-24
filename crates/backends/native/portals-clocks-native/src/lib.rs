@@ -1,4 +1,4 @@
-//! Native implementation of pith-clocks.
+//! Native implementation of portals-clocks.
 
 use rhi_portals_clocks::{MonotonicClock, WallClock};
 use std::time::{Duration, Instant, SystemTime, UNIX_EPOCH};
