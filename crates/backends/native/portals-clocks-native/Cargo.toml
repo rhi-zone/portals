@@ -1,5 +1,5 @@
 [package]
-name = "rhizome-pith-clocks-native"
+name = "rhi-portals-clocks-native"
 description = "Native implementation of pith-clocks"
 version.workspace = true
 edition.workspace = true
@@ -11,5 +11,5 @@ default = ["tokio"]
 tokio = ["dep:tokio"]
 
 [dependencies]
-rhizome-rhi-portals-clocks = { path = "../../../interfaces/pith-clocks" }
+rhi-portals-clocks = { path = "../../../interfaces/portals-clocks" }
 tokio = { workspace = true, optional = true }

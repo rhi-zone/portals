@@ -1,5 +1,5 @@
 [package]
-name = "rhizome-pith-cache"
+name = "rhi-portals-cache"
 description = "Cache interfaces"
 version.workspace = true
 edition.workspace = true

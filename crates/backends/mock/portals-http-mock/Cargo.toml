@@ -1,5 +1,5 @@
 [package]
-name = "rhizome-pith-http-mock"
+name = "rhi-portals-http-mock"
 description = "Mock implementation of pith-http for testing"
 version.workspace = true
 edition.workspace = true
@@ -7,7 +7,7 @@ license.workspace = true
 repository.workspace = true
 
 [dependencies]
-rhizome-rhi-portals-http = { path = "../../../interfaces/pith-http" }
+rhi-portals-http = { path = "../../../interfaces/portals-http" }
 
 [dev-dependencies]
 tokio = { workspace = true }

@@ -1,6 +1,6 @@
 //! Native implementation of pith-sql using libsql.
 
-use rhizome_rhi_portals_sql::{Connection, Error, Row, Value};
+use rhi_portals_sql::{Connection, Error, Row, Value};
 
 /// A SQLite connection backed by libsql.
 ///

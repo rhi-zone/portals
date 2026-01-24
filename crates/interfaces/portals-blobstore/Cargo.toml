@@ -1,5 +1,5 @@
 [package]
-name = "rhizome-pith-blobstore"
+name = "rhi-portals-blobstore"
 description = "Blob storage interfaces"
 version.workspace = true
 edition.workspace = true

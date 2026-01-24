@@ -4,7 +4,7 @@
 
 use std::path::Path;
 
-pub use rhizome_rhi_portals_io::{InputStream, OutputStream, Seek, SeekFrom, StreamError};
+pub use rhi_portals_io::{InputStream, OutputStream, Seek, SeekFrom, StreamError};
 
 /// Filesystem error types.
 #[derive(Debug)]

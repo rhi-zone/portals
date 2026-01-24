@@ -1,5 +1,5 @@
 [package]
-name = "rhizome-pith-cron"
+name = "rhi-portals-cron"
 description = "Cron expression interfaces"
 version.workspace = true
 edition.workspace = true

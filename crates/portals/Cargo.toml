@@ -1,5 +1,5 @@
 [package]
-name = "rhizome-pith"
+name = "rhi-portals"
 description = "A standard library of interfaces for Rust"
 version.workspace = true
 edition.workspace = true

@@ -1,6 +1,6 @@
 //! Native implementation of pith-crypto using RustCrypto.
 
-use rhizome_rhi_portals_crypto::{Cipher, CryptoError, Hash, Hmac, Kdf, Signature};
+use rhi_portals_crypto::{Cipher, CryptoError, Hash, Hmac, Kdf, Signature};
 
 // ============================================================================
 // Hashing

@@ -1,5 +1,5 @@
 [package]
-name = "rhizome-pith-clocks-wasm"
+name = "rhi-portals-clocks-wasm"
 description = "WASM implementation of pith-clocks"
 version.workspace = true
 edition.workspace = true
@@ -7,7 +7,7 @@ license.workspace = true
 repository.workspace = true
 
 [dependencies]
-rhizome-rhi-portals-clocks = { path = "../../../interfaces/pith-clocks" }
+rhi-portals-clocks = { path = "../../../interfaces/portals-clocks" }
 js-sys = "0.3"
 wasm-bindgen = "0.2"
 wasm-bindgen-futures = "0.4"

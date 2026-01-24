@@ -1,6 +1,6 @@
 //! Native implementation of pith-sockets using tokio.
 
-use rhizome_rhi_portals_sockets::{Error, Resolver, TcpConnect, TcpListener, TcpStream, UdpSocket};
+use rhi_portals_sockets::{Error, Resolver, TcpConnect, TcpListener, TcpStream, UdpSocket};
 use std::net::{IpAddr, SocketAddr};
 use tokio::io::{AsyncReadExt, AsyncWriteExt};
 use tokio::net;

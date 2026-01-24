@@ -1,5 +1,5 @@
 [package]
-name = "rhizome-pith-io-native"
+name = "rhi-portals-io-native"
 description = "Native implementation of pith-io"
 version.workspace = true
 edition.workspace = true
@@ -11,5 +11,5 @@ default = ["tokio"]
 tokio = ["dep:tokio"]
 
 [dependencies]
-rhizome-rhi-portals-io = { path = "../../../interfaces/pith-io" }
+rhi-portals-io = { path = "../../../interfaces/portals-io" }
 tokio = { workspace = true, features = ["io-util"], optional = true }

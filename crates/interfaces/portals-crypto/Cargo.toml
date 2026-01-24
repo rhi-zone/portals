@@ -1,5 +1,5 @@
 [package]
-name = "rhizome-pith-crypto"
+name = "rhi-portals-crypto"
 description = "Cryptographic interfaces"
 version.workspace = true
 edition.workspace = true

@@ -1,7 +1,7 @@
 //! Native implementation of pith-filesystem.
 
-use rhizome_rhi_portals_filesystem::{DirEntry, Directory, Error, FileType, Metadata};
-use rhizome_rhi_portals_io_native::{ReaderStream, WriterStream};
+use rhi_portals_filesystem::{DirEntry, Directory, Error, FileType, Metadata};
+use rhi_portals_io_native::{ReaderStream, WriterStream};
 use std::fs::{self, File, OpenOptions};
 use std::path::{Path, PathBuf};
 
@@ -29,13 +29,13 @@ impl NativeDir {
 }
 
 impl Directory for NativeDir {
-    fn open_read(&self, path: &Path) -> Result<impl rhizome_rhi_portals_filesystem::InputStream + rhizome_rhi_portals_filesystem::Seek, Error> {
+    fn open_read(&self, path: &Path) -> Result<impl rhi_portals_filesystem::InputStream + rhi_portals_filesystem::Seek, Error> {
         let full_path = self.resolve(path);
         let file = File::open(&full_path)?;
         Ok(ReaderStream::new(file))
     }
 
-    fn open_write(&self, path: &Path) -> Result<impl rhizome_rhi_portals_filesystem::OutputStream + rhizome_rhi_portals_filesystem::Seek, Error> {
+    fn open_write(&self, path: &Path) -> Result<impl rhi_portals_filesystem::OutputStream + rhi_portals_filesystem::Seek, Error> {
         let full_path = self.resolve(path);
         let file = OpenOptions::new()
             .write(true)
@@ -45,7 +45,7 @@ impl Directory for NativeDir {
         Ok(WriterStream::new(file))
     }
 
-    fn open_append(&self, path: &Path) -> Result<impl rhizome_rhi_portals_filesystem::OutputStream, Error> {
+    fn open_append(&self, path: &Path) -> Result<impl rhi_portals_filesystem::OutputStream, Error> {
         let full_path = self.resolve(path);
         let file = OpenOptions::new()
             .write(true)
@@ -145,7 +145,7 @@ mod tests {
 
     #[test]
     fn create_and_read_file() {
-        use rhizome_rhi_portals_filesystem::{InputStream, OutputStream};
+        use rhi_portals_filesystem::{InputStream, OutputStream};
 
         let temp_dir = std::env::temp_dir().join("pith-fs-test-1");
         let _ = fs::remove_dir_all(&temp_dir);
@@ -217,7 +217,7 @@ mod tests {
 
     #[test]
     fn seek_in_file() {
-        use rhizome_rhi_portals_filesystem::{InputStream, Seek, SeekFrom};
+        use rhi_portals_filesystem::{InputStream, Seek, SeekFrom};
 
         let temp_dir = std::env::temp_dir().join("pith-fs-test-4");
         let _ = fs::remove_dir_all(&temp_dir);

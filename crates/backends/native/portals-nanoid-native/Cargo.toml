@@ -1,5 +1,5 @@
 [package]
-name = "rhizome-pith-nanoid-native"
+name = "rhi-portals-nanoid-native"
 description = "Native nanoid implementation"
 version.workspace = true
 edition.workspace = true
@@ -7,5 +7,5 @@ license.workspace = true
 repository.workspace = true
 
 [dependencies]
-rhizome-rhi-portals-nanoid = { path = "../../../interfaces/pith-nanoid" }
+rhi-portals-nanoid = { path = "../../../interfaces/portals-nanoid" }
 nanoid = "0.4"
