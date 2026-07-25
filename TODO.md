@@ -17,38 +17,16 @@
    - [x] portals-http-mock (request recording, response queuing)
 8. [x] Crypto AAD support (AES-GCM, ChaCha20-Poly1305)
 
-## Backlog
 
-### Capability Audit
+### [x] Update CLAUDE.md — corrections as documentation lag (2026-03-29)
 
-See [ADR-0004](docs/adr/0004-capability-audit.md) for full audit results.
+Add to the corrections section:
+> **Corrections are documentation lag, not model failure.** When the same mistake recurs, the fix is writing the invariant down — not repeating the correction. Every correction that doesn't produce a CLAUDE.md edit will happen again. Exception: during active design, corrections are the work itself — don't prematurely document a design that hasn't settled yet.
 
-**Summary**: All 23 interfaces now compliant. Fixed violations:
-- [x] portals-sockets - removed `TcpListen::bind()`, `UdpSocket::bind()`; renamed to `TcpListener`
-- [x] portals-blobstore - removed `BlobStore` trait, kept `Container`
-- [x] portals-websocket - removed `WebSocketConnector` trait, kept `WebSocketClient`
-- [x] portals-messaging - removed `Messaging` trait, kept `Channel`/`Topic`/`Sender`/`Receiver`
+Add to the Session Handoff section:
+> **Initiate a handoff after a significant mid-session correction.** When a correction happens after substantial wrong-path work, the wrong reasoning is still in context and keeps pulling. Writing down the invariant and starting fresh beats continuing with poisoned context — the next session loads the invariant from turn 1 before any wrong reasoning exists.
 
-### WASI Phase 1/2 interfaces
-
-- [x] **portals-url** - URL parsing (WASI Phase 1)
-- [x] **portals-timezone** - timezone handling (WASI Phase 2)
-- [x] **portals-config** - runtime configuration (WASI Phase 1)
-- [x] **portals-logging** - structured logging (WASI Phase 1)
-- [x] **portals-keyvalue** - key-value store (WASI Phase 1)
-- [x] **portals-blobstore** - blob storage (WASI Phase 1)
-- [x] **portals-observe** - observability/telemetry (WASI Phase 1)
-- [x] **portals-messaging** - message queues (WASI Phase 1)
-
-### Unstable / Deferred
-
-APIs likely to change or too platform-specific:
-
-- **portals-nn** - neural network inference (WASI Phase 2, ML APIs evolving fast)
-- **portals-gfx** - graphics (WASI Phase 2, graphics APIs notoriously unstable)
-- **portals-threads** - threading (WASI Phase 1, complex semantics)
-- **portals-i2c / portals-spi / portals-usb** - hardware interfaces (niche, platform-specific)
-- **portals-distributed-lock** - distributed locking (niche)
+Conventional commit: `docs: add corrections-as-documentation-lag + context-poisoning handoff rule`
 
 ## Potential Interfaces
 
